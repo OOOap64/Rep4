@@ -11,7 +11,7 @@ jobs:
     # Название job вы можете назвать как угодно
       
 
-    run:
+    lint:
       runs-on: ubuntu-latest
       steps:
           - uses: actions/checkout@v4
@@ -22,30 +22,17 @@ jobs:
             run: pip install ruff && ruff check .
 
     build: 
-      needs: run 
-      if: github.event_name=='push' && github.ref=="refs/heads/main"
+      needs: lint
       runs-on: ubuntu-latest 
-      permissions:
-        contents: read
-        packages: write
       steps:
-        - uses: actions/checkout@v4
-        - name:  Login to GHCR
-          uses: docker/login-action@v3
-          with:
-            registry: ghcr.io
-            username: OOOap64
-            password: ggfd25y448$#@!
-        - name: Build and push
-          uses: docker/build-push-action@v6
-          with:
-            context: .
-            push: true
-            tags: ghcr.io/OOOap64/Rep3:latest
+        - name: Docker Setup Docker
+          uses: docker/setup-docker-action@v5.5.0
+        - name: Build docker container
+          run: docker build -t app
     deploy:
       needs: build
       runs-on: ubuntu-latest
       steps:
         - name: Deploy
-          run: echo "Тут ssh/команда деплоя, например docker pull/up на сервере"
+          run: docker run app
 

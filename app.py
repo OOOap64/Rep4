@@ -3,19 +3,11 @@ from collections import Counter
 from datetime import timedelta
 import sqlite3 as sql
 import hashlib
-from flask import (
-    Flask, request, url_for, render_template, redirect, jsonify
-)
+from flask import Flask, request, url_for, render_template, redirect, jsonify
 
-from flask_jwt_extended import (
-    JWTManager,
-    create_access_token,
-    create_refresh_token,
-    jwt_required,
-    get_jwt_identity,
-    set_access_cookies,
-set_refresh_cookies
-)
+
+from flask_jwt_extended import  JWTManager, create_access_token,  create_refresh_token,jwt_required, get_jwt_identity, set_access_cookies, set_refresh_cookies
+
 import jwt
 from dotenv import load_dotenv
 

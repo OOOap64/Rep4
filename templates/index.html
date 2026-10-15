@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="{{ url_for( 'static', filename='css/c1.css' ) }}">
+    </head>
+    <body>
+        <form id="registration" method="post">
+            {% block reg %}
+            <label >Name</label><br>
+            <input style="color: white" name="name" type="text"><br>
+            <label >Password</label><br>
+            <input style="color: white" name="password" type="password"> <br>
+            <label >Group</label><br>
+            <select id="sl" name="grp">
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+            <select><br>
+            <label >Post</label><br>
+            <select style="color: white" id="sl" name="post">
+                <option>Backend</option>
+                <option>Frontend</option>
+                <option>DevOps</option>
+                <option>TeamLead</option>
+                <option>DataScientist</option>
+            <select><br>
+            <button type="submit">Confirm</button>
+            <h3>{{err}}</h3>      
+            {% endblock reg %}
+        </form>   
+    </body>
+</html>

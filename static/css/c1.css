@@ -1,0 +1,41 @@
+body {
+    background-color: rgb(125, 140, 155);
+}
+form{
+    background-color:black;
+    color: white;
+    padding: 60px;
+    text-align: center;
+    width:300px;
+    margin-left: 37%;
+    margin-top: 5%;
+}
+form button{
+    background-color:black;
+    color: white;
+    padding: 7px;
+    width:fit-content; 
+}
+form input{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: white 2px  solid;
+    border-radius: 4px;
+    background-color: black;
+}
+#sl{
+    background-color: black;
+    color:white;
+    border: white 2px  solid;
+    margin-bottom: 5px;
+    width: 90px;
+}
+#sl option{
+    background-color: black;
+    color:white;
+    width: 60px;
+}
+form a{
+    text-align: center;
+    text-decoration: none;    
+}

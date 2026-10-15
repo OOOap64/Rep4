@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/c2.css') }}">
+        <title>Document</title>
+    </head>
+
+    <body>
+            <div id="UI" class="float_left">
+                <br>
+                <h4>You, {{nm[1]}}, are {{ nm[2] }} from {{ nm[3]}}</h4>
+                <br>
+                <br>
+                <div class="table" id="tb1">
+                    <table>
+                    <tr>
+                        <th>Users</th>
+                        <th>Post</th>
+                    </tr>
+                    {% for i in us %}
+                    <tr>
+
+                        <th>{{i[1]}}</th>
+                        <th>{{i[2]}}</th>
+                    </tr>
+                    {% endfor %}
+                </table>
+
+                </div>
+                
+                
+            </div>
+            <a class="float_left" href="/add_task" style="text-decoration: none;"><h1 style="color: white">+</h1></a>
+            <div class="float_left" >
+                <h1 style="text-align: center">To do</h1>
+                <div class="table" id="tb2">
+                    <table>
+                        
+                        <tr>
+                            <th>Task</th>
+                            <th>Executer</th>
+                            <th>Actions</th>
+                        </tr>
+                        {% for t in tsk %}
+
+                            <tr>
+                                <th>{{t[1]}}</th>
+                                <th>{{t[2]}}</th>
+                                
+                                <th style="width:  min-content">
+                                    <div class="float_left">
+                                        <a style="text-decoration: none" href="/edit/{{t[0]}}"><button id="btnAc" >✏️</button>
+                                        <br>
+                                        <a style="text-decoration: none" href="/delete/{{t[0]}}"><button id="btnAc">🗑️</button></a>
+                                    </div>
+                                    <a style="text-decoration: none" href="/transform1/{{t[0]}}"><button id="btnAc" style="height: 45px" class="float_left"> ➡️ </button></a>
+                                </th>
+                            </tr>    
+                        {% endfor %}    
+                    </table>
+                    
+                </div>
+            </div>
+            <div class="float_left" >
+            <h1 style="text-align: center">In process</h1>
+             <div class="table" id="tb2">
+                <table>
+                    <tr>
+                        <th>Task</th>
+                        <th>Executer</th>
+                        <th>Actions</th>
+                    </tr>    
+                        {% for t2 in tsk2 %}
+
+                            <tr>
+                                <th>{{t2[1]}}</th>
+                                <th>{{t2[2]}}</th>
+                                
+                                <th style="width:  min-content">
+                                    <div class="float_left">
+                                        <a style="text-decoration: none" href="/edit/{{t2[0]}}"><button id="btnAc" >✏️</button>
+                                        <br>
+                                        <a style="text-decoration: none" href="/delete/{{t2[0]}}"><button id="btnAc">🗑️</button></a>
+                                    </div>
+                                    <a style="text-decoration: none" href="/transform1/{{t2[0]}}"><button id="btnAc" style="height: 45px" class="float_left"> ➡️ </button></a>
+                                </th>
+                            </tr>    
+                        {% endfor %}  
+                              
+                </table>
+
+            </div>
+            </div>
+            <div class="float_left" >
+            <h1 style="text-align: center">Done</h1>
+             <div class="table" id="tb2">
+                <table>
+                    <tr>
+                        <th>Task</th>
+                        <th>Executer</th>
+                        <th>Actions</th>
+                    </tr>    
+                        {% for t3 in tsk3 %}
+
+                            <tr>
+                                <th>{{t3[1]}}</th>
+                                <th>{{t3[2]}}</th>
+                                
+                                <th style="width:  min-content">
+                                    <div class="float_left">
+                                        <a style="text-decoration: none" href="/edit/{{t3[0]}}"><button id="btnAc" >✏️</button></a>
+                                        <br>
+                                        <a style="text-decoration: none" href="/delete/{{t3[0]}}"><button id="btnAc">🗑️</button></a>
+                                    </div>
+                            </tr>    
+                        {% endfor %}
+                </table>
+            </div>
+            </div>
+    </body>
+</html>

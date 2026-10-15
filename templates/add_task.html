@@ -1,0 +1,13 @@
+{% extends "index.html" %}
+{% block reg %}
+            <label >Task</label><br>
+            <input style="color: white; height: 60px;"name="task" type="text"><br>
+            <label >Executer</label><br>
+            <select id="sl" name="executer">
+                {% for us in uss %}
+                    <option>{{us[1]}}</option>
+                {% endfor  %}
+            <select><br>
+            <a href="/home"><button  >Cancel</button></a>
+            <button  type="submit">Confirm</button>
+{% endblock reg %}

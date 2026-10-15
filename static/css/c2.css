@@ -1,0 +1,83 @@
+body {
+    background-color: rgb(125, 140, 155);
+}
+#dropmenu{
+    margin-left: 10px;
+}
+#dropmenu a{
+    cursor: pointer;
+    background-color: black;
+    border: none;
+    display: block;
+    padding: 10px 15px;
+    color: white;
+}
+#menu{
+    width: 80px;
+    background-color: black;
+    color: white;
+    border: 2px white;
+}
+#list_menu{
+    font-size: 6px;
+}
+#dropmenu:hover #menu{
+    color: lightgrey;
+}
+#dropmenu #list_menu{
+    display: none;
+    position: absolute;
+}
+
+#dropmenu:hover #list_menu{
+    display: block;
+}
+.float_left{
+    float: left;
+}
+#UI{
+    padding: 25px;
+}
+#sign_in{
+    margin-bottom: 30px;
+        width: 80px;
+    background-color: black;
+    color: white;
+    border: 2px white;
+}
+.table{
+    margin-top: 3% ;
+    color:white;
+    background-color: black;
+    border: white;
+    height: 400px;
+    overflow: scroll;
+}
+.table  th{
+    background-color:rgb(123, 123, 123);
+    color: white;
+    border: white;
+    font-size: 10px;
+
+}
+#btnAc{
+    background-color: black;
+    color: white;
+    border:  3px 3px;
+    border-color: white ;
+    width: max-content;
+    height: max-content ;
+    text-align: center;
+}
+#tb1{
+    width: 200px;
+}
+#tb1 th{
+    width: 100px;
+}
+#tb2{
+    width: 330px;
+}
+#tb2 th{
+    width: 110px;
+}

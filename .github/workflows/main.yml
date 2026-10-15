@@ -9,8 +9,6 @@ on:
 # jobs запускаются параллельно, если не указана последовательность
 jobs:
     # Название job вы можете назвать как угодно
-      
-
     lint:
       runs-on: ubuntu-latest
       steps:
@@ -21,18 +19,19 @@ jobs:
           - name: Lint
             run: pip install ruff && ruff check .
 
-    build: 
-      needs: lint
-      runs-on: ubuntu-latest 
-      steps:
-        - name: Docker Setup Docker
-          uses: docker/setup-docker-action@v5.5.0
-        - name: Build docker container
-          run: docker build -t app
+    # build-run: 
+    #   needs: lint
+    #   runs-on: ubuntu-latest 
+    #   steps:
+    #     - name: Docker Setup Docker
+    #       uses: docker/setup-docker-action@v5.5.0
+    #     - name: Build docker container
+    #       run: docker build -t app
+          
     deploy:
-      needs: build
+      needs: lint
       runs-on: ubuntu-latest
       steps:
         - name: Deploy
-          run: docker run app
+          run: python app.py
 

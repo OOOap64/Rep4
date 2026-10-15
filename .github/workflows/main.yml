@@ -13,7 +13,7 @@ jobs:
 
     run:
       runs-on: ubuntu-latest
-        steps:
+      steps:
           - uses: actions/checkout@v4
           - uses: actions/setuo-python@v5
           - name: Run a web 
@@ -22,28 +22,28 @@ jobs:
             run: pip install ruff && ruff check .
 
     build: 
-      needs:run 
-      if: github.event_name=='push' && githyb.ref=="refs/heads/main"
+      needs: run 
+      if: github.event_name=='push' && github.ref=="refs/heads/main"
       runs-on: ubuntu-latest 
       permissions:
         contents: read
         packages: write
       steps:
-        -uses: actions/checkout@v4
-        -name:  LOgin to GHCR
-         uses: docker/login-action@v3
-         with:
-           registry: ghcr.io
-           username: OOOap64
-           password: ggfd25y448$#@!
-         - name: Build and push
-         uses: docker/build-push-action@v6
-         with:
-           context: .
-           push: true
-           tags: ghcr.io/OOOap64/Rep3:latest
+        - uses: actions/checkout@v4
+        - name:  Login to GHCR
+          uses: docker/login-action@v3
+          with:
+            registry: ghcr.io
+            username: OOOap64
+            password: ggfd25y448$#@!
+        - name: Build and push
+          uses: docker/build-push-action@v6
+          with:
+            context: .
+            push: true
+            tags: ghcr.io/OOOap64/Rep3:latest
     deploy:
-      needs: build-and-push
+      needs: build
       runs-on: ubuntu-latest
       steps:
         - name: Deploy

@@ -13,7 +13,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
           - uses: actions/checkout@v4
-          - uses: actions/setuo-python@v5
+          - uses: actions/setup-python@v5
           - name: Run a web 
             run: python app.py && python -m pip install --upgrade pip
           - name: Lint

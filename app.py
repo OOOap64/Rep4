@@ -49,14 +49,6 @@ def conn():def conn():
     con.commit()
     return  con, cur
 
-def none_to_0(i):
-    if i is None:
-        return 0
-    return i
-def none_to_0m(i):
-    if i is None:
-        return []
-    return i
 
 @jwt_required()
 def is_teamlead():

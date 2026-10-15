@@ -19,19 +19,4 @@ jobs:
           - name: Lint
             run: pip install ruff && ruff check .
 
-    # build-run: 
-    #   needs: lint
-    #   runs-on: ubuntu-latest 
-    #   steps:
-    #     - name: Docker Setup Docker
-    #       uses: docker/setup-docker-action@v5.5.0
-    #     - name: Build docker container
-    #       run: docker build -t app
-          
-    deploy:
-      needs: lint
-      runs-on: ubuntu-latest
-      steps:
-        - name: Deploy
-          run: python app.py
-
+   

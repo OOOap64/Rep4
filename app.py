@@ -24,9 +24,29 @@ app.config["JWT_COOKIE_SECURE"] = False
 
 jwt = JWTManager(app)
 
-def conn():
+def conn():def conn():
     con=sql.connect("sqlite.db")
     cur=con.cursor()
+
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS User (
+            id       INTEGER PRIMARY KEY,
+            name     TEXT    NOT NULL UNIQUE,
+            password TEXT    NOT NULL,
+            grp      TEXT,
+            post     TEXT
+        );
+    """)
+    con.commit()
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS Task (
+            id   INTEGER PRIMARY KEY,
+            task TEXT,
+            u_id INTEGER,
+            type TEXT
+        );
+    """)
+    con.commit()
     return  con, cur
 
 def none_to_0(i):

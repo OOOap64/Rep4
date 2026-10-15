@@ -3,7 +3,7 @@ FROM python
 LABEL version="2.0"
 LABEL puplish="15.10.2026"
 
-WORKDIR /Rep4
+WORKDIR /
 
 COPY . .
 
